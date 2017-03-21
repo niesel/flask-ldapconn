@@ -4,7 +4,7 @@ import ssl
 from flask import current_app, g
 from flask import _app_ctx_stack as stack
 from ldap3 import Server, Connection, Tls
-from ldap3 import SYNC, ALL, SUBTREE
+from ldap3 import SYNC, ALL, SUBTREE, IP_V4_ONLY
 from ldap3 import AUTO_BIND_NO_TLS, AUTO_BIND_TLS_BEFORE_BIND
 from ldap3 import LDAPBindError, LDAPInvalidFilterError, LDAPInvalidDnError
 from ldap3.utils.dn import split_ava
@@ -72,7 +72,8 @@ class LDAPConn(object):
             port=app.config['LDAP_PORT'],
             use_ssl=app.config['LDAP_USE_SSL'],
             tls=self.tls,
-            get_info=ALL
+            get_info=ALL,
+            mode=IP_V4_ONLY
         )
 
         # Store ldap_conn object to extensions
