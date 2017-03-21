@@ -6,7 +6,7 @@ from flask import _app_ctx_stack as stack
 from ldap3 import Server, Connection, Tls
 from ldap3 import SYNC, ALL, SUBTREE, IP_V4_ONLY
 from ldap3 import AUTO_BIND_NO_TLS, AUTO_BIND_TLS_BEFORE_BIND
-from ldap3 import LDAPBindError, LDAPInvalidFilterError, LDAPInvalidDnError
+from ldap3.core.exceptions import LDAPBindError, LDAPInvalidFilterError, LDAPInvalidDnError
 from ldap3.utils.dn import split_ava
 
 from .entry import LDAPEntry
