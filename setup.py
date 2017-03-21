@@ -15,7 +15,7 @@ from setuptools import setup
 setup(
     name='Flask-LDAPConn',
     version='0.6.13',
-    url='http://github.com/rroemhild/flask-ldapconn',
+    url='http://github.com/niesel/flask-ldapconn',
     license='BSD',
     author='Rafael Römhild',
     author_email='rafael@roemhild.de',
@@ -28,9 +28,9 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Flask==0.10.1',
-        'ldap3==1.3.1',
-        'six==1.10.0'
+        'Flask>=0.10.1',
+        'ldap3>=1.3.1',
+        'six>=1.10.0'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
