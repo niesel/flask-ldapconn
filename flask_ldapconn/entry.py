@@ -7,7 +7,7 @@ from importlib import import_module
 
 from flask import current_app
 from ldap3 import ObjectDef
-from ldap3 import LDAPEntryError
+from ldap3.core.exceptions import LDAPEntryError
 from ldap3.utils.dn import safe_dn
 from ldap3.utils.conv import check_json_dict, format_json
 
