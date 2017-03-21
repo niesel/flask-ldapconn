@@ -7,7 +7,7 @@ from importlib import import_module
 
 from flask import current_app
 from ldap3 import ObjectDef
-from ldap3.core.exceptions import LDAPEntryError
+import ldap3.core.exceptions
 from ldap3.utils.dn import safe_dn
 from ldap3.utils.conv import check_json_dict, format_json
 
@@ -61,7 +61,7 @@ class LDAPEntry(object):
 
         for key, value in kwargs.items():
             if key not in self._attributes:
-                raise LDAPEntryError('attribute not found')
+                raise ldap3.core.exceptions.LDAPExceptionError('attribute not found')
             self._attributes[key]._init = value
 
     def __iter__(self):
@@ -85,7 +85,7 @@ class LDAPEntry(object):
 
     def __setattr__(self, key, value):
         if key not in self._attributes:
-            raise LDAPEntryError('attribute not found')
+            raise ldap3.core.exceptions.LDAPExceptionError('attribute not found')
 
         self._attributes[key].value = value
 

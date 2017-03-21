@@ -45,7 +45,6 @@ class LDAPConn(object):
 
         app.config.setdefault('LDAP_USE_SSL', False)
         app.config.setdefault('LDAP_USE_TLS', False)
-        app.config.setdefault('LDAP_TLS_VERSION', ssl.PROTOCOL_TLSv1)
         app.config.setdefault('LDAP_REQUIRE_CERT', ssl.CERT_REQUIRED)
 
         app.config.setdefault('LDAP_CLIENT_PRIVATE_KEY', None)
@@ -59,7 +58,6 @@ class LDAPConn(object):
             local_private_key_file=app.config['LDAP_CLIENT_PRIVATE_KEY'],
             local_certificate_file=app.config['LDAP_CLIENT_CERT'],
             validate=app.config['LDAP_REQUIRE_CERT'],
-            version=app.config['LDAP_TLS_VERSION'],
             ca_certs_file=app.config['LDAP_CA_CERTS_FILE'],
             valid_names=app.config['LDAP_VALID_NAMES'],
             ca_certs_path=app.config['LDAP_CA_CERTS_PATH'],

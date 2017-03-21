@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from ldap3 import AttrDef, 
-from ldap3.core.exceptions LDAPAttributeError
+from ldap3 import AttrDef
+import ldap3.core.exceptions
 from ldap3 import STRING_TYPES, MODIFY_ADD, MODIFY_DELETE, MODIFY_REPLACE
 
 
@@ -28,7 +28,7 @@ class LDAPAttribute(object):
 
     def __setattr__(self, item, value):
         if item not in ['value', '_init']:
-            raise LDAPAttributeError('can not set key')
+            raise ldap3.core.exceptions.LDAPExceptionError('can not set key')
 
         # set changetype
         if item is 'value':
