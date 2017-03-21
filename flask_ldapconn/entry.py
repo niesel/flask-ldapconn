@@ -6,7 +6,7 @@ from copy import deepcopy
 from importlib import import_module
 
 from flask import current_app
-from ldap3 import ObjectDef
+from ldap3 import ObjectDef, set_config_parameter
 import ldap3.core.exceptions
 from ldap3.utils.dn import safe_dn
 from ldap3.utils.conv import check_json_dict, format_json
@@ -14,6 +14,7 @@ from ldap3.utils.conv import check_json_dict, format_json
 from .query import BaseQuery
 from .attribute import LDAPAttribute
 
+set_config_parameter('DEFAULT_ENCODING', 'utf-8')
 
 __all__ = ('LDAPEntry',)
 

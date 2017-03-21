@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import current_app
-from ldap3 import BASE, Reader
+from ldap3 import BASE, Reader, set_config_parameter
 
+set_config_parameter('DEFAULT_ENCODING', 'utf-8')
 
 __all__ = ('BaseQuery',)
 

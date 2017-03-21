@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from ldap3 import AttrDef
+from ldap3 import AttrDef, set_config_parameter
 import ldap3.core.exceptions
 from ldap3 import STRING_TYPES, MODIFY_ADD, MODIFY_DELETE, MODIFY_REPLACE
 
+set_config_parameter('DEFAULT_ENCODING', 'utf-8')
 
 class LDAPAttribute(object):
 

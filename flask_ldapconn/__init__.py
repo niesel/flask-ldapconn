@@ -3,7 +3,7 @@ import ssl
 
 from flask import current_app, g
 from flask import _app_ctx_stack as stack
-from ldap3 import Server, Connection, Tls
+from ldap3 import Server, Connection, Tls, set_config_parameter
 from ldap3 import SYNC, ALL, SUBTREE, IP_V4_ONLY
 from ldap3 import AUTO_BIND_NO_TLS, AUTO_BIND_TLS_BEFORE_BIND
 from ldap3.core.exceptions import LDAPBindError, LDAPInvalidFilterError, LDAPInvalidDnError
@@ -11,6 +11,8 @@ from ldap3.utils.dn import split_ava
 
 from .entry import LDAPEntry
 from .attribute import LDAPAttribute
+
+set_config_parameter('DEFAULT_ENCODING', 'utf-8')
 
 
 __all__ = ('LDAPConn',)
