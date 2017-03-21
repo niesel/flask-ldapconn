@@ -92,6 +92,9 @@ class LDAPConn(object):
             user=user,
             password=password,
             check_names=True,
+            auto_escape=True,
+            auto_encode=True,
+            version=3,
             read_only=current_app.config['LDAP_READ_ONLY'],
         )
 
